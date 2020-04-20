@@ -39,8 +39,6 @@ x_train,x_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state 
 
 #No need of Feature Scaling as Multiple linear regression library takes care of that
 
-
-
 #Fitting the Multiple linear regression  to the traning set
 from sklearn.linear_model import LinearRegression
 sRegressor = LinearRegression()
@@ -48,7 +46,7 @@ sRegressor.fit(x_train,y_train)
 
 #predicting the testset results
 y_pred = sRegressor.predict(x_test)
-
+sRegressor.score(x_test,y_test)
 
 #Building the optimal model using Backward Elimination
 import statsmodels.api as sm
@@ -74,5 +72,19 @@ X_opt = X[:,[0,3]]
 sRegressor_OLS = sm.OLS(endog = y,exog = X_opt).fit()
 sRegressor_OLS.summary()
 
+
+#splitting training and test data
+from sklearn.model_selection import train_test_split
+x_train,x_test,y_train,y_test = train_test_split(X_opt,y,test_size=0.2,random_state = 0)
+
+
+#Fitting the Multiple linear regression  to the traning set
+from sklearn.linear_model import LinearRegression
+sRegressor = LinearRegression()
+sRegressor.fit(x_train,y_train)
+
+#predicting the testset results
+y_pred = sRegressor.predict(x_test)
+sRegressor.score(x_test,y_test)
 
 sRegressor.score(x_test,y_test)

@@ -32,7 +32,7 @@ lRegressor.fit(X,y)
 
 #fitting apolynomial model
 from sklearn.preprocessing import PolynomialFeatures
-pRegressor = PolynomialFeatures(degree =4)
+pRegressor = PolynomialFeatures(degree = 4)
 X_poly = pRegressor.fit_transform(X)
 pRegressor2 = LinearRegression()
 pRegressor2.fit(X_poly,y)
