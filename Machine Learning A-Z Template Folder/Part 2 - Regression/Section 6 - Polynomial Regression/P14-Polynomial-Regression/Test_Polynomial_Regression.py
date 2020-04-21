@@ -12,7 +12,7 @@ Created on Wed Apr  8 05:07:19 2020
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-%matplotlib qt
+#%matplotlib qt
 
 #getting data
 data = pd.read_csv('Position_Salaries.csv')
